@@ -9,7 +9,10 @@ RUN git checkout dev.go2go
 RUN ./make.bash
 RUN /src/goroot/bin/go version
 
-ENV GOPATH /src/goroot/src
+RUN mkdir -p /samples/src/github.com/sourcefellows/go-generics-samples
+ENV GOPATH /samples
+ENV GO2PATH /samples
 ENV PATH /src/goroot/bin:$PATH
+RUN echo 'alias go2="go tool go2go"' >> ~/.bashrc
 
-WORKDIR /root
+WORKDIR /samples/src/github.com/sourcefellows/go-generics-samples

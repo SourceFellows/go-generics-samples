@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/sourcefellows/go-generics-samples/structs"
+	)
 
 func Print[T any](s []T) {
 	for _, v := range s {
@@ -9,6 +12,10 @@ func Print[T any](s []T) {
 }
 
 func main() {
+
+	p := &structs.Person[string]{}
+	fmt.Println(p)
+
 	val := []string{"Hello World"}
 	Print(val)
 }
