@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/sourcefellows/go-generics-samples/structs"
-	)
+)
 
 func Print[T any](s []T) {
 	for _, v := range s {
