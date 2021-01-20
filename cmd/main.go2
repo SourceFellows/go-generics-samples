@@ -3,12 +3,28 @@ package main
 import (
 	"fmt"
 	"github.com/sourcefellows/go-generics-samples/structs"
+	"github.com/sourcefellows/go-generics-samples/sort"
 )
 
 func Print[T any](s []T) {
 	for _, v := range s {
 		fmt.Println(v)
 	}
+}
+
+func Reverse[T any](s []T) {
+    first := 0
+    last := len(s) - 1
+    for first < last {
+        s[first], s[last] = s[last], s[first]
+        first++
+        last--
+    }
+}
+
+func doSthGeneric[T any](val T) T {
+	//somthing important...
+	return val
 }
 
 func main() {
@@ -18,4 +34,18 @@ func main() {
 
 	val := []string{"Hello World"}
 	Print(val)
+
+	//Reverse with Go Generics
+	strings := []string{"1", "2", "3"}
+	Reverse(strings)
+	fmt.Println(strings)
+
+	//generic return type
+	fmt.Println(len(strings))
+	val = doSthGeneric(strings)
+	fmt.Println(len(val))
+
+	sort.TestingSort()
+	sort.TestingInterfaceSort()
+
 }

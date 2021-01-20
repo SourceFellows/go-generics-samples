@@ -1,0 +1,44 @@
+package sort
+
+import (
+	"fmt"
+)
+
+type ObjectToSort struct {
+    name string
+}
+
+func (ots ObjectToSort) Less(toCompare ObjectToSort) bool {
+    return ots.name < toCompare.name
+}
+
+func Sort[Elem interface{ Less(val Elem) bool}](list []Elem) {
+	//somthing important...
+	return
+}
+
+func TestingSort() {
+    values := []ObjectToSort{{"1"}, {"2"}, {"3"}}
+    Sort(values)
+    Sort[ObjectToSort](values)
+	fmt.Println(values)
+}
+
+type Lesser[Elem any] interface {
+    Less(val Elem) bool
+}
+
+func SortInterface[Elem Lesser[Elem]](list []Elem) {
+	var i, j int
+    //somthing important...
+    if list[i].Less(list[j]) {
+        //somthing important...
+    }
+}
+
+func TestingInterfaceSort() {
+    values := []ObjectToSort{{"1"}, {"2"}, {"3"}}
+    Sort(values)
+    SortInterface[ObjectToSort](values)
+	fmt.Println(values)
+}
